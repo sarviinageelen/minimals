@@ -23,11 +23,15 @@
 
     </head>
     <body>
-        <header class="header">
-        <a href="/"><h1 class="site-title">Sarviin<span class="site-tagline">listing all things that matter</span></h1></a>
-                <button class="menu-btn">show all lists</button>
-        </header>
+        {{ partial "header.html" . }}
+
+        {{ partial "sidebar.html" . }}
+
         {{ block "main" . }}
         {{ end }}
+
+        {{ $opts := (dict "targetPath" "main.js" "minify" true) }}
+        {{ $js := resources.Get "js/main.js" | js.Build $opts}}
+        <script type="application/javascript" src="{{ $js.RelPermalink }}" defer></script>
     </body>
 </html>

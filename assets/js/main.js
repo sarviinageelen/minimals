@@ -1,4 +1,4 @@
-import { Fuse } from 'fuse.js';
+const Fuse = require('../../node_modules/fuse.js/dist/fuse.basic.min.js');
 
 document.querySelector('.menu-btn').addEventListener('click', (function () {
   document.body.classList.toggle('sidebar-open'),
@@ -31,7 +31,7 @@ e.addEventListener('keyup', (function (e) {
   0 != n.length ? (t.forEach((function (e) {
     e.style.display = 'none'
   })), n.forEach((function (e) {
-    e.item.style.display = 'block'
+    e.item.item.style.display = 'block'
   })))  : t.forEach((function (e) {
     e.style.display = 'initial'
   }))
