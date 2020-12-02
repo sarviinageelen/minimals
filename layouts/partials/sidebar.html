@@ -3,15 +3,14 @@
     <div class="categories">
 
     {{ range $category := where .Site.RegularPages "Section" "categories" }}
-    <a class="category-link" href="{{ $category.Permalink }}">{{ $category.Title }}</a>
+    <a class="category-link" href="{{ $category.RelPermalink }}">{{ $category.Title }}</a>
         {{ range $subcategory := where .Site.RegularPages "Section" "subcategories" }}
         {{ if eq $subcategory.Params.category $category.Title }}
-        <a class="subcategory-link" href="{{ $subcategory.Permalink }}">{{ $subcategory.Title }}</a>
+        <a class="subcategory-link" href="{{ $subcategory.RelPermalink }}">{{ $subcategory.Title }}</a>
         {{ end }}
         {{ end }}
     {{ end }}
 
-                </div>
-    <!-- <footer class="sidebar&#45;footer"><a class="suggest&#45;link" href="https://mnmll.ist/suggest">suggest something</a></footer> -->
-    <footer class="sidebar-footer">Sarviin's Site</footer>
+    </div>
+    <footer class="sidebar-footer"><a class="suggest-link" href="/suggest">suggest something</a></footer>
 </nav>

@@ -4,7 +4,7 @@
         <article class="list-container" data-search="art-paintings">
             <header class="list-header">
                 <h1 class="list-category"><a href="/categories/{{ lower .Params.category }}">{{ .Params.category }}</a></h1>
-                <h2 class="list-subcategory"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+                <h2 class="list-subcategory"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
             </header>
             <ol class="list">
                 {{ range .Params.products }}
@@ -24,11 +24,11 @@
         {{ if eq $subcategory.Params.category $category.Title }}
         <article class="list-container" data-search="art-paintings">
             <header class="list-header">
-                <h1 class="list-category"><a href="{{ $category.Permalink }}">{{ $category.Title }}</a></h1>
-                <h2 class="list-subcategory"><a href="{{ $subcategory.Permalink }}">{{ $subcategory.Title }}</a></h2>
+                <h1 class="list-category"><a href="{{ $category.RelPermalink }}">{{ $category.Title }}</a></h1>
+                <h2 class="list-subcategory"><a href="{{ $subcategory.RelPermalink }}">{{ $subcategory.Title }}</a></h2>
             </header>
             <ol class="list">
-                {{ range $subcategory.Params.products }}
+                {{ range first 3 $subcategory.Params.products }}
                 <li class="list-item">
                     <p class="product-name"><a class="product-link" href="{{ safeURL .productURL }}" rel="noopener noreferrer" target="_blank">{{ .productName }}</a></p>
                     <p class="maker-name"><a class="maker-link" href="{{ safeURL .productMakerURL }}" rel="noopener noreferrer" target="_blank">{{ .productMaker }}</a></p>
