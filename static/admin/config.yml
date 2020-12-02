@@ -1,5 +1,5 @@
 backend:
-  name: "github"
+  name: git-gateway
   repo: "sarviinageelen/minimals"
   branch: "cms"
 media_folder: "static/uploads"
